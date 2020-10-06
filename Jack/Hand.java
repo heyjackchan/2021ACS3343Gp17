@@ -15,7 +15,7 @@ public class Hand {
 		
 	}
 	
-	void Sort() {
+	public void Sort() {
 		boolean flag = true;
 		Card temp;
 		for(int i = 1; (i<=13) && flag;i++) {
@@ -32,7 +32,7 @@ public class Hand {
 		
 	}
 	
-	void Add(Card card) {
+	public void Add(Card card) {
 		if(cardNo < 13 ) {
 			hand.set(cardNo, card);
 			cardNo++;
@@ -40,20 +40,20 @@ public class Hand {
 		
 	}
 	
-	Card getCard(int n) {
+	public Card getCard(int n) {
 		
 		return hand.get(n);
 	}
 	
-	void SetCard(Card card, int n) {
+	public void SetCard(Card card, int n) {
 		hand.set(n, card);
 	}
 	
-	int getNoCard() {
+	public int getNoCard() {
 		return cardNo;
 	}
 	
-	Card release(int v, char s) {
+	public Card release(int v, char s) {
 		Card card = null;
 		for(int i = 0; i<13; i++) {
 			if(hand.get(i).getValue() == v 
@@ -65,11 +65,11 @@ public class Hand {
 		return card;
 	}
 	
-	void cardNoDe() {
+	public void cardNoDe() {
 		cardNo --;
 	}
 	
-	void clear() {
+	public void clear() {
 		Card card = new Card();
 		for (int i = 0; i < 13; i++) {
 			hand.set(i,card);
