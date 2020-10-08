@@ -1,10 +1,7 @@
-package cs3343jk;
+/*
+Dear Macy:
 
-public class Card {
+Please overwrite this file with your code. Thank you!
 
-	public int getIndex() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-}
+Jack
+*/
