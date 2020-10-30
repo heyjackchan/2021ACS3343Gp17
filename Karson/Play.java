@@ -1,5 +1,3 @@
-import static com.company.Play.ComboType.*;
-
 public class Play {
 
 
@@ -54,18 +52,18 @@ public class Play {
     }
 
     public ComboType checkType(Card[] combo) {
-        ComboType type = NONE;
+        ComboType type = ComboType.NONE;
         switch (getCardNo()) {
             case 1:
-                type = SINGLE; //a card
+                type = ComboType.SINGLE; //a card
                 break;
             case 2:
                 if (isEqual(combo, 0, 1,  CardType.VALUE))
-                    type = PAIR; //pair
+                    type = ComboType.PAIR; //pair
                 break;
             case 3:
                 if (isEqual(combo, 0, 2,  CardType.VALUE))
-                    type = THREE_OF_KIND; // three card
+                    type = ComboType.THREE_OF_KIND; // three card
                 break;
             case 5:
                 boolean straight = true;
@@ -82,11 +80,11 @@ public class Play {
 
 
                 if (straight && flush)
-                    type = STRAIGHT_FLUSH; // straight flush
+                    type = ComboType.STRAIGHT_FLUSH; // straight flush
                 else if (isEqual(combo, 0, 3,  CardType.VALUE))
-                    type = FOUR_PLUS_ONE;  //four plus one
+                    type = ComboType.FOUR_PLUS_ONE;  //four plus one
                 else if (isEqual(combo, 1, 4,  CardType.VALUE)) {
-                    type = FOUR_PLUS_ONE; //four plus one
+                    type = ComboType.FOUR_PLUS_ONE; //four plus one
 
                     Card temp = combo[0];
                     for (int i = 0; i < 4; i++)
@@ -95,9 +93,9 @@ public class Play {
                     temp = null;
                 }
                 else if (isEqual(combo, 0, 2, CardType.VALUE) && isEqual(combo, 3, 4,  CardType.VALUE))
-                    type = FULL_HOUSE; // three plus one
+                    type = ComboType.FULL_HOUSE; // three plus one
                 else if (isEqual(combo, 0, 1, CardType.VALUE) && isEqual(combo, 2, 4,  CardType.VALUE)) {
-                    type = FULL_HOUSE; // three plus one
+                    type = ComboType.FULL_HOUSE; // three plus one
 
                     Card temp = combo[0];
                     Card temp2 = combo[1];
@@ -109,9 +107,9 @@ public class Play {
                     temp2 = null;
                 }
                 else if (flush)
-                    type = FLUSH; // flush
+                    type = ComboType.FLUSH; // flush
                 else if (straight)
-                    type = STRAIGHT; // straight
+                    type = ComboType.STRAIGHT; // straight
                 break;
 
         }
@@ -146,16 +144,16 @@ public class Play {
         }
 
         if(start){
-            if (currentType == NONE) {
+            if (currentType == ComboType.NONE) {
                 valid = false;
             } else {
                 valid = true;
             }
         } else {
             if (getpCardNo() == getCardNo()){
-                if (currentType == NONE)
+                if (currentType == ComboType.NONE)
                     return false;
-                if (currentType.compareTo(THREE_OF_KIND) == 1) {
+                if (currentType.compareTo(ComboType.THREE_OF_KIND) == 1) {
                     if (currentType.compareTo(previousType) == 1)
                         valid = true;
                 }
