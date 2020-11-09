@@ -1,17 +1,20 @@
 
 public class History {
     private int round;
+    private int turn;
     private String playerName;
     private Combination currentPlay;
 
     public History() {
         round = 0;
+        turn = 0;
         playerName = null;
         currentPlay = null;
     }
 
-    public History(int round, String playerName, Combination currentPlay) {
+    public History(int round, int turn, String playerName, Combination currentPlay) {
         this.round = round;
+        this.turn = turn;
         this.playerName = playerName;
         if(currentPlay == null){
             this.currentPlay = null;
@@ -24,12 +27,12 @@ public class History {
         return round;
     }
 
-    public String getPlayerName() {
-        return playerName;
+    public int getTurn() {
+        return turn;
     }
 
-    public void setPlayerName(String playerName) {
-        this.playerName = playerName;
+    public String getPlayerName() {
+        return playerName;
     }
 
     public String printCurrentPlay() {
