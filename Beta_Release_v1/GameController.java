@@ -49,7 +49,7 @@ public class GameController {
             player.setName(sc.nextLine());
             index++;
         }
-        // clearScreen();
+        clearScreen();
     }
 
     private static void clearScreen() {
@@ -82,7 +82,7 @@ public class GameController {
     }
 
     private void printCardIndex() {
-        String indexStr = "Card index: \t\t\t";
+        String indexStr = "Card index: \t\t";
         for (int i = 0; i < 13; i++) {
             indexStr += (i + 1) + "\t";
         }
@@ -133,6 +133,7 @@ public class GameController {
         System.out.println("Congratulations " + currentPlayer.getName() + "! you win the game!");
         printRemainingNumberOfCards();
         System.out.println("Game End!!!");
+        pause();
     }
 
     private int nextPlayerIndex() {
@@ -202,7 +203,7 @@ public class GameController {
     }
 
     private boolean checkMenuInput(String input) {
-        if (input.equals("1") || input.equals("2") || input.equals("3")) {
+        if (input.equals("0") || input.equals("1") || input.equals("2")) {
             return true;
         } else {
             return false;
@@ -214,10 +215,15 @@ public class GameController {
         System.out.println("It is your turn, "+ players[currentPlayerIndex].getName() +": ");
     }
 
+    private void pause(){
+        System.out.println("Press Enter Key To Continue...");
+        new java.util.Scanner(System.in).nextLine();
+    }
+
     private void handleTurn() {
         currentPlayer = players[currentPlayerIndex];
         nextPlayer = players[nextPlayerIndex()];
-        System.out.println("What is your next action?\n1. Play card(s)\n2. Skip\n3. View History");
+        System.out.println("What is your next action?\n0. Skip\n1. Play card(s)\n2. View History");
         printPlayerHand(currentPlayerIndex);
         printCardIndex();
         System.out.print("Please select your action: ");
@@ -229,20 +235,20 @@ public class GameController {
             menuInput = sc.nextLine();
         }
         switch(menuInput) {
+            case "0":
+                skip();
+                break;
             case "1":
                 discard();
                 break;
             case "2":
-                skip();
-                break;
-            case "3":
                 printHistories();
                 break;
             default:
                 System.out.println("Incorrect input! Please enter a correct action number!");
         }
 
-        // clearScreen();
+        clearScreen();
     }
 
     private void incrementRound() {
@@ -291,6 +297,7 @@ public class GameController {
             turn++;
         } else {
             System.out.println("Your cannot skip! Please choose again!");
+            pause();
         }
         incrementRound();
     }

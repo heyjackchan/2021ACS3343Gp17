@@ -2,7 +2,7 @@
 public class Card {
 
     public static final char[] CARD_VALUE = {'3', '4', '5', '6', '7', '8', '9', 'X', 'J', 'Q', 'K', 'A', '2'};
-    public static final char[] CARD_SUIT = {'♢', '♧', '♡', '♤'};
+    public static final char[] CARD_SUIT = {'D', 'C', 'H', 'S'};
 
     private int index;
     private int value;
