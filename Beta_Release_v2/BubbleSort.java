@@ -6,7 +6,6 @@ public class BubbleSort implements SortStrategy {
         Card temp;
         for (int i = 1; (i <= cards.getCardNo()) && flag; i++)
         {
-            System.out.print("cards.getCardNo() : \n" + cards.getCardNo());
             flag = false;
             for (int j = 0; j < (cards.getCardNo() - 1); j++)
             {
