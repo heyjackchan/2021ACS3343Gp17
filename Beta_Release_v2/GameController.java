@@ -87,7 +87,7 @@ public class GameController {
     }
 
     private void printCardIndex() {
-        String indexStr = "Card index: \t\t\t";
+        String indexStr = "Card index: \t\t";
         for (int i = 0; i < 13; i++) {
             indexStr += (i + 1) + "\t";
         }
