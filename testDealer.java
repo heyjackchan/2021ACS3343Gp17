@@ -4,15 +4,29 @@ import org.junit.jupiter.api.Test;
 
 class testDealer {
 
-	//Test case A0401: Create an new deck with all cards are diamond, print out its information.
+	//Test case UNIT0701: _______________________.
 	@Test
 	public void test_NewDeck_shuffle() {
-		Dealer dealer = new Dealer();
-		System.out.println(dealer.toString());
-		dealer.shuffle();
-		System.out.println(dealer.toString());
-		
-		
+//		class DealerStub extends Dealer {
+//			@Override
+//			public void shuffle() {
+//			}
+//		}
+//		Dealer dealerStub = new DealerStub();
+//		dealerStub.shuffle();
+//		System.out.print(dealerStub.toString());
+		String expectResult = "";
+		String actualResult = "";
+		assertEquals(expectResult, actualResult);
+	}
+	
+	//Test case UNIT0702: _______________________.
+	@Test
+	public void test_NewDeck_deal() {
+//		Hand hand = new Hand();
+//		Dealer dealer = new Dealer();
+//		dealer.deal(hand);
+//		System.out.print(dealer.toString());
 		String expectResult = "";
 		String actualResult = "";
 		assertEquals(expectResult, actualResult);

@@ -3,11 +3,12 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class testDeck {
+	
+	Deck deck = new Deck(); //Create a new deck.
 
-	//Test case A0301: Create an new deck, print out its information.
+	//Test case UNIT0301: Use the deck to test toString() function.
 	@Test
-	public void test_NewDeck_toString() {
-		Deck deck = new Deck();
+	public void testDeck_Deck_toString() {
 		String expectResult = "Deck{\n"
 				+ "Card{index= 0, value= 0, suit= 0, discarded= false, CardSymbol= D3}\n"
 				+ "Card{index= 5, value= 1, suit= 1, discarded= false, CardSymbol= C4}\n"
@@ -66,59 +67,38 @@ class testDeck {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0302: Create an new deck, get its capacity.
+	//Test case UNIT0302: Use the deck to test getCapacity() function.
 	@Test
-	public void test_NewDeck_getCapacity() {
-		Deck deck = new Deck();
+	public void testDeck_Deck_getCapacity() {
 		int expectResult = 52;
 		int actualResult = deck.getCapacity();
 		assertEquals(expectResult, actualResult);
 	}	
 	
-	//Test case A0303: Create an new deck, get the card information which index=1.
+	//Test case UNIT0303: Use the deck to test getCardByIndex() function by getting index=1's information.
 	@Test
-	public void test_NewDeck_getCardByIndex() {
-		Deck deck = new Deck();
+	public void testDeck_Deck_getCardByIndex() {
 		String expectResult = "Card{index= 5, value= 1, suit= 1, discarded= false, CardSymbol= C4}";
 		String actualResult = deck.getCardByIndex(1).toString();
 		assertEquals(expectResult, actualResult);
 	}	
 	
-	//Test case A0304: Create an new deck, get the card information which index=1.
+	//Test case UNIT0304: Use the deck to test getCardNo() function by getting index=1's information.
 	@Test
-	public void test_NewDeck_getCardNo() {
-		Deck deck = new Deck();
+	public void testDeck_Deck_getCardNo() {
 		int expectResult = 0;
 		int actualResult = deck.getCardNo();
 		assertEquals(expectResult, actualResult);
 	}	
 	
-	//Test case A0305: Create an new deck, add a new card and return its index.
-//	@Test
-//	public void test_NewDeck_addCard() {
-//		Deck deck = new Deck();
-//		System.out.print(deck.getCardNo());
-//		assertEquals(1, 1);
-//		//String expectResult = "Card{index= 5, value= 1, suit= 1, discarded= false, CardSymbol= C4}";
-//		//String actualResult = deck.getCardByIndex(1).toString();
-//		//assertEquals(expectResult, actualResult);
-//	}	
-	
-	//Test case A0306: Create an new deck, set C4 card to index 5, return card index 5's information.
+	//Test case UNIT0305: Use the deck to test setCardByIndex() function.
 	@Test
-	public void test_NewDeck_setCardByIndex() {
-		Deck deck = new Deck();
-		Card card = new Card(1,1); //Which is Club 4.
+	public void testDeck_Deck_setCardByIndex() {
+		Card card = new Card(1,1); //Which is Club-4.
 		deck.setCardByIndex(card, 5);
 		String expectResult = "Card{index= 5, value= 1, suit= 1, discarded= false, CardSymbol= C4}";
 		String actualResult = deck.getCardByIndex(5).toString();
 		assertEquals(expectResult, actualResult);
 	}
 
-	
-	
-	
-	
-	
-	
 } 

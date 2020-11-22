@@ -8,9 +8,10 @@ class testCardPile {
 		public CardPileAll3() {
 			super(4);
 	        cards = new Card[capacity];
-	        for (int i = 0; i < capacity; i++) {
-	            cards[i] = new Card(0, i);
-	        }
+	        super.addCard(new Card(0, 0));
+	        super.addCard(new Card(0, 1));
+	        super.addCard(new Card(0, 2));
+	        super.addCard(new Card(0, 3));
 			
 		}
 		public CardPileAll3(CardPile cards) {
@@ -58,6 +59,7 @@ class testCardPile {
 				+ "Card{index= 3, value= 0, suit= 3, discarded= false, CardSymbol= S3}\n"
 				+ "}";
 		String actualResult = cardPileAll3Obj.toString();
+		System.out.print(cardPileAll3Obj.toString());
 		assertEquals(expectResult, actualResult);
 	}
 	

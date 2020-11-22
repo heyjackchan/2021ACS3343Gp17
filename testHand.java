@@ -3,11 +3,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class testHand {
-
-	//Test case A0401: Create an new deck with all cards are diamond, print out its information.
+	Hand hand = new Hand(); //Create a new hand.
+	
+	//Test case UNIT0401: Use the hand to test toString() function.
 	@Test
-	public void test_NewHand_toString() {
-		Hand hand = new Hand();
+	public void testHand_Hand_toString() {
 		for(int i=0;i<13;i++) {
 			hand.addCard(new Card(i,0));
 		}
@@ -30,10 +30,9 @@ class testHand {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0402: Create an new deck with all cards are diamond, release first card, print its latest information.
+	//Test case UNIT0402: Use the hand to test releaseCard() function.
 	@Test
-	public void test_NewHand_releaseCard() {
-		Hand hand = new Hand();
+	public void testHand_Hand_releaseCard() {
 		for(int i=0;i<13;i++) {
 			hand.addCard(new Card(i,0));
 		}

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 class testHumanPlayer {
 
-	//Test case A0601: Create an new player without any information, print out its information.
+	//Test case UNIT0601: Create an new player without any value assigned to test toString() function.
 	@Test
-	public void test_NewPlayerNull_toString() {
+	public void testHumanPlayer_humanPlayerNULL_toString() {
 		HumanPlayer humanPlayer = new HumanPlayer();
 		String expectResult = "{ name= }\n"
 				+ " ,play={\n"
@@ -28,12 +28,12 @@ class testHumanPlayer {
 	
 	//Test case A0602: Create an new player with all required information, print out its information.
 	@Test
-	public void test_NewPlayer_withInfo_toString() {
+	public void testHumanPlayer_humanPlayerWITHDATA_toString() {
 		Hand hand = new Hand();
 		Play play = new Play();
 		String name = "Jack";
 		SortStrategy sortStrategy = new BubbleSort();
-		HumanPlayer humanPlayer_withInfo = new HumanPlayer(hand, play, name, sortStrategy);
+		HumanPlayer humanPlayer = new HumanPlayer(hand, play, name, sortStrategy);
 		String expectResult = "{ name=Jack }\n"
 				+ " ,play={\n"
 				+ "currentCombination={ \n"
@@ -48,8 +48,8 @@ class testHumanPlayer {
 				+ "}\n"
 				+ " } \n"
 				+ "";
-		System.out.print(humanPlayer_withInfo.toString());
-		String actualResult = humanPlayer_withInfo.toString();
+		System.out.print(humanPlayer.toString());
+		String actualResult = humanPlayer.toString();
 		assertEquals(expectResult, actualResult);
 	}
 

@@ -3,25 +3,26 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class testAbstractPlayer {
-	private class JackPlayer extends AbstractPlayer {
-	    public JackPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+	private class TestPlayer extends AbstractPlayer {
+		//Create a new AbstractPlayer type TestPlayer.
+	    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
 	        super(hand, play, name, sortStrategy);
 	    }
 	}
 	
-	//Test case A0501: Create an new player with All card of club in descending order, apply sorting and print out its information.
+	Hand hand = new Hand(); //Create a new hand.
+	Play play = new Play(); //Create a new play.
+	String name = "Jack"; //Create a new name.
+	SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
+	
+	//Test case UNIT0501: Create testPlayer to test sort() function.
 	@Test
-	public void test_NewPlayer_All3Club_sort(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
+	public void testAbstractPlayer_TestPlayer_sort(){
+		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
-		jackPlayer.sort();
-		System.out.print(hand.toString());
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
+		testPlayer.sort();
 		String expectResult = "\n"
 				+ "Card{index= 1, value= 0, suit= 1, discarded= false, CardSymbol= C3}\n"
 				+ "Card{index= 5, value= 1, suit= 1, discarded= false, CardSymbol= C4}\n"
@@ -41,97 +42,64 @@ class testAbstractPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0502: Create an new player without any card, test win function.
+	//Test case UNIT0502: Create testPlayer to test win() function in TRUE condition.
 	@Test
-	public void test_NewPlayer_winTRUE(){
-		Hand hand = new Hand();
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
+	public void testAbstractPlayer_TestPlayer_winTRUE(){
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		boolean expectResult = true;
-		boolean actualResult = jackPlayer.win();
+		boolean actualResult = testPlayer.win();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0503: Create an new player with All card of club in descending order, test win function.
+	//Test case UNIT0503: Create testPlayer to test win() function in FALSE condition.
 	@Test
-	public void test_NewPlayer_winFALSE(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
+	public void testAbstractPlayer_TestPlayer_winFALSE(){
+		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		boolean expectResult = false;
-		boolean actualResult = jackPlayer.win();
+		boolean actualResult = testPlayer.win();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0504: Create an new player with All card of club in descending order, test getHand function.
+	//Test case UNIT0504: Create testPlayer to test getHand() function.
 	@Test
-	public void test_NewPlayer_All3Club_getHand(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
+	public void testAbstractPlayer_TestPlayer_getHand(){
+		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		Hand expectResult = hand;
-		Hand actualResult = jackPlayer.getHand();
+		Hand actualResult = testPlayer.getHand();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0505: Create an new player with All card of club in descending order, test getPlay function.
+	//Test case UNIT0505: Create testPlayer to test getPlay() function.
 	@Test
-	public void test_NewPlayer_All3Club_getPlay(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
-			hand.addCard(new Card((12-i),1));
-		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
+	public void testAbstractPlayer_TestPlayer_getPlay(){
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		Play expectResult = play;
-		Play actualResult = jackPlayer.getPlay();
+		Play actualResult = testPlayer.getPlay();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0506: Create an new player with All card of club in descending order, test getName function.
+	//Test case UNIT0506: Create testPlayer to test getName() function.
 	@Test
-	public void test_NewPlayer_All3Club_getName(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
-			hand.addCard(new Card((12-i),1));
-		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
+	public void testAbstractPlayer_TestPlayer_getName(){
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		String expectResult = "Jack";
-		String actualResult = jackPlayer.getName();
+		String actualResult = testPlayer.getName();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0507: Create an new player with All card of club in descending order, test setName function.
+	//Test case UNIT0507: Create testPlayer to test setName() function.
 	@Test
-	public void test_NewPlayer_All3Club_setName(){
-		Hand hand = new Hand();
-		for(int i=0;i<13;i++) {
-			hand.addCard(new Card((12-i),1));
-		}
-		Play play = new Play();
-		String name = "Jack";
-		SortStrategy sortStrategy = new BubbleSort();
-		JackPlayer jackPlayer = new JackPlayer(hand, play, name, sortStrategy);
-		jackPlayer.setName("David");
+	public void testAbstractPlayer_TestPlayer_setName(){
+		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
+		testPlayer.setName("David");
 		String expectResult = "David";
-		String actualResult = jackPlayer.getName();
+		String actualResult = testPlayer.getName();
 		assertEquals(expectResult, actualResult);
 	}
 
