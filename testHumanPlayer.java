@@ -26,7 +26,7 @@ class testHumanPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0602: Create an new player with all required information, print out its information.
+	//Test case UNIT0602: Create an new player with all required information, print out its information.
 	@Test
 	public void testHumanPlayer_humanPlayerWITHDATA_toString() {
 		Hand hand = new Hand();

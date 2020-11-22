@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 class testCombination {
 
-	//Test case A0701: Create an new deck with all cards are diamond, print out its information.
+	//Test case UNIT0701: Create a new combination without any value assigned to test toString() function.
 	@Test
-	public void test_NewCombination_Null_toString() {
+	public void testCombination_CombinationNull_toString() {
 		Combination combination = new Combination();
 		String expectResult = "combination{\n"
 				+ "cardNo=0, \n"
@@ -15,9 +15,9 @@ class testCombination {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0702: Create an new deck with all cards are diamond, print out its information.
+	//Test case UNIT0702: Create a new combination of a pair of 3 to test toString() function.
 	@Test
-	public void test_NewCombination_CardObj_withPair_toString() {
+	public void testCombination_CombinationCardObj_withPair_toString() {
 		class Pair extends CardPile {
 			public Pair() {
 				super(2);
@@ -37,9 +37,9 @@ class testCombination {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case A0704: Create an new deck with all cards are diamond, print out its information.
+	//Test case UNIT0703: Create a new combination with NULL value inputed to test toString() function.
 	@Test
-	public void test_NewCombination_inputNull_toString() {
+	public void testCombination_CombinationInputNull_toString() {
 		Combination combination = new Combination(null);
 		System.out.println(combination.toString());
 		String expectResult = "combination{\n"

@@ -47,7 +47,7 @@ class testCardPile {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0201: Use cardPile type CardPileAll3 to create CardPile object to test toString() function.
+	//Test case UNIT0202: Use cardPile type CardPileAll3 to create CardPile object to test toString() function.
 	@Test
 	public void testCardPile_CardPileAll3_asObj_toString() {
 		CardPileAll3 cardPileAll3Obj = new CardPileAll3(cardPileAll3);
@@ -110,7 +110,7 @@ class testCardPile {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0201: Use cardPile type CardPileAll3 to test clear() function.
+	//Test case UNIT0206: Use cardPile type CardPileAll3 to test clear() function.
 	@Test
 	public void testCardPile_CardPileAll3_clear() {
 		CardPileAll3 cardPileAll3 = new CardPileAll3();
