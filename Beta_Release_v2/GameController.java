@@ -44,13 +44,45 @@ public class GameController {
             // System.out.println("Player " + (i + 1) + " {\n"  + players[i].toString());
 
         }
-        System.out.println("Game Start!!!");
+        System.out.println("                                                                         \r\n"
+        		+ "                                                                         \r\n"
+        		+ "BBBBBBBBBBBBBBBBB     iiii                            222222222222222    \r\n"
+        		+ "B::::::::::::::::B   i::::i                          2:::::::::::::::22  \r\n"
+        		+ "B::::::BBBBBB:::::B   iiii                           2::::::222222:::::2 \r\n"
+        		+ "BB:::::B     B:::::B                                 2222222     2:::::2 \r\n"
+        		+ "  B::::B     B:::::Biiiiiii    ggggggggg   ggggg                 2:::::2 \r\n"
+        		+ "  B::::B     B:::::Bi:::::i   g:::::::::ggg::::g                 2:::::2 \r\n"
+        		+ "  B::::BBBBBB:::::B  i::::i  g:::::::::::::::::g              2222::::2  \r\n"
+        		+ "  B:::::::::::::BB   i::::i g::::::ggggg::::::gg         22222::::::22   \r\n"
+        		+ "  B::::BBBBBB:::::B  i::::i g:::::g     g:::::g        22::::::::222     \r\n"
+        		+ "  B::::B     B:::::B i::::i g:::::g     g:::::g       2:::::22222        \r\n"
+        		+ "  B::::B     B:::::B i::::i g:::::g     g:::::g      2:::::2             \r\n"
+        		+ "  B::::B     B:::::B i::::i g::::::g    g:::::g      2:::::2             \r\n"
+        		+ "BB:::::BBBBBB::::::Bi::::::ig:::::::ggggg:::::g      2:::::2       222222\r\n"
+        		+ "B:::::::::::::::::B i::::::i g::::::::::::::::g      2::::::2222222:::::2\r\n"
+        		+ "B::::::::::::::::B  i::::::i  gg::::::::::::::g      2::::::::::::::::::2\r\n"
+        		+ "BBBBBBBBBBBBBBBBB   iiiiiiii    gggggggg::::::g      22222222222222222222\r\n"
+        		+ "                                        g:::::g                          \r\n"
+        		+ "                            gggggg      g:::::g                          \r\n"
+        		+ "                            g:::::gg   gg:::::g                          \r\n"
+        		+ "                             g::::::ggg:::::::g                          \r\n"
+        		+ "                              gg:::::::::::::g                           \r\n"
+        		+ "                                ggg::::::ggg                             \r\n"
+        		+ "                                   gggggg                                \r\n"
+        		+ "  ____    U  ___ u   _  __  U _____ u   ____                   ____      _      __  __  U _____ u \r\n"
+        		+ "U|  _\"\\ u  \\/\"_ \\/  |\"|/ /  \\| ___\"|/U |  _\"\\ u             U /\"___|uU  /\"\\  uU|' \\/ '|u\\| ___\"|/ \r\n"
+        		+ "\\| |_) |/  | | | |  | ' /    |  _|\"   \\| |_) |/             \\| |  _ / \\/ _ \\/ \\| |\\/| |/ |  _|\"   \r\n"
+        		+ " |  __/.-,_| |_| |U/| . \\\\u  | |___    |  _ <                | |_| |  / ___ \\  | |  | |  | |___   \r\n"
+        		+ " |_|    \\_)-\\___/   |_|\\_\\   |_____|   |_| \\_\\                \\____| /_/   \\_\\ |_|  |_|  |_____|  \r\n"
+        		+ " ||>>_       \\\\   ,-,>> \\\\,-.<<   >>   //   \\\\_               _)(|_   \\\\    >><<,-,,-.   <<   >>  \r\n"
+        		+ "(__)__)     (__)   \\.)   (_/(__) (__) (__)  (__)             (__)__) (__)  (__)(./  \\.) (__) (__) \r\n\r\n\r\n"
+        		+ "******************************************************************************************************\r\n\r\n");
     }
 
     public void promptPlayerName() {
         int index = 1;
         for (AbstractPlayer player: players) {
-            System.out.print("Player " + index +" Name: ");
+            System.out.print("Please enter player " + index +" Name: ");
             player.setName(sc.nextLine());
             index++;
         }
@@ -66,36 +98,122 @@ public class GameController {
     }
 
     private void printPlayerHand(int index) {
-        String handStr = "Cards that you have: \t";
+        String handStr = "Cards that you have: \n";
+        String line1 = ".------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.";
+        String line2 = "";
+        String line3 = "";
+        String line4 = "";
+        String line5 = "";
+        String line6 = "'------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'     '------'";
+        String line8 = "";
+        String line9 = "|------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|     |------|";
         for (int i = 0; i < 13; i++) {
             Card temp = players[index].getHand().getCardByIndex(i);
             if (!temp.isDiscarded()) {
+            	int j = i + 1;
                 if (i == 12) {
-                    handStr += temp.printCardSymbol();
+                	line8 += "|  " + j + "  |";
+                	switch (temp.getSuit()) {
+                	case 0:
+                    	line2 += "|" + temp.getValueSymbol() + " /\\  |";
+                    	line3 += "| /  \\ |";
+                    	line4 += "| \\  / |";
+                    	line5 += "|  \\/ " + temp.getValueSymbol() + "|";
+                    	break;
+                	case 1:
+                    	line2 += "|" + temp.getValueSymbol() + " _   |";
+                    	line3 += "| ( )  |";
+                    	line4 += "|(_x_) |";
+                    	line5 += "|  Y  " + temp.getValueSymbol() + "|";
+                    	break;
+                	case 2:
+                    	line2 += "|" + temp.getValueSymbol() + "_  _ |";
+                    	line3 += "|( \\/ )|";
+                    	line4 += "| \\  / |";
+                    	line5 += "|  \\/ " + temp.getValueSymbol() + "|";
+                    	break;
+                	case 3:
+                    	line2 += "|" + temp.getValueSymbol() + " .   |";
+                    	line3 += "| / \\  |";
+                    	line4 += "|(_,_) |";
+                    	line5 += "|  I  " + temp.getValueSymbol() + "|";
+                    	break;
+                	default:
+                    	line2 += "";
+                    	line3 += "";
+                    	line4 += "";
+                    	line5 += "";
+                    	break;
+                	}
                 } else {
-                    handStr += temp.printCardSymbol() + "\t";
+                	if(i<9) {
+                		line8 += "|   " + j + "  |     ";
+                	}else {
+                		line8 += "|  " + j + "  |     ";
+                	}
+                	switch (temp.getSuit()) {
+                	case 0:
+                    	line2 += "|" + temp.getValueSymbol() + " /\\  |     ";
+                    	line3 += "| /  \\ |     ";
+                    	line4 += "| \\  / |     ";
+                    	line5 += "|  \\/ " + temp.getValueSymbol() + "|     ";
+                    	break;
+                	case 1:
+                    	line2 += "|" + temp.getValueSymbol() + " _   |     ";
+                    	line3 += "| ( )  |     ";
+                    	line4 += "|(_x_) |     ";
+                    	line5 += "|  Y  " + temp.getValueSymbol() + "|     ";
+                    	break;
+                	case 2:
+                    	line2 += "|" + temp.getValueSymbol() + "_  _ |     ";
+                    	line3 += "|( \\/ )|     ";
+                    	line4 += "| \\  / |     ";
+                    	line5 += "|  \\/ " + temp.getValueSymbol() + "|     ";
+                    	break;
+                	case 3:
+                    	line2 += "|" + temp.getValueSymbol() + " .   |     ";
+                    	line3 += "| / \\  |     ";
+                    	line4 += "|(_,_) |     ";
+                    	line5 += "|  I  " + temp.getValueSymbol() + "|     ";
+                    	break;
+                	default:
+                    	line2 += "";
+                    	line3 += "";
+                    	line4 += "";
+                    	line5 += "";
+                    	break;
+                	}
                 }
             } else {
                 if (i == 12) {
-                    handStr += "--";
+                	line8 += "|  XX  |";
+                	line2 += "|######|";
+                	line3 += "|######|";
+                	line4 += "|######|";
+                	line5 += "|######|";
                 } else {
-                    handStr += "--\t";
+                	line8 += "|  XX  |     ";
+                	line2 += "|######|     ";
+                	line3 += "|######|     ";
+                	line4 += "|######|     ";
+                	line5 += "|######|     ";
                 }
             }
         }
+        handStr += line1 + "\n" + line2 + "\n" + line3 + "\n" + line4 + "\n" + line5 + "\n" + line6 + "\n\n" + line8 + "\n" + line9 + "\n";
         System.out.println(handStr);
     }
 
-    private void printCardIndex() {
-        String indexStr = "Card index: \t\t";
-        for (int i = 0; i < 13; i++) {
-            indexStr += (i + 1) + "\t";
-        }
-        System.out.println(indexStr);
-    }
+//    private void printCardIndex() {
+//        String indexStr = "Card index: \t\t";
+//        for (int i = 0; i < 13; i++) {
+//            indexStr += (i + 1) + "\t";
+//        }
+//        System.out.println(indexStr);
+//    }
 
     private String promptPlayerInput() {
-        System.out.print("Input the card index(s) to indicate the card you want to play (Input 0 to your turn):");
+        System.out.print("Input the card index(s) to indicate the card you want to play (Input 0 to discard this round):");
         String input = sc.nextLine();
         return input;
     }
@@ -115,7 +233,7 @@ public class GameController {
     }
 
     private void printHistory(History history) {
-        System.out.println("[Round " + history.getRound() +"] [Turn "+ history.getTurn() + "] [" + history.getPlayerName() + "]: " + history.printCurrentPlay());
+        System.out.println("*[Round " + history.getRound() +"] [Turn "+ history.getTurn() + "] [" + history.getPlayerName() + "]: " + history.printCurrentPlay());
     }
 
     private void printHistories() {
@@ -228,9 +346,9 @@ public class GameController {
     private void handleTurn() {
         currentPlayer = players[currentPlayerIndex];
         nextPlayer = players[nextPlayerIndex()];
-        System.out.println("What is your next action?\n0. Skip\n1. Play card(s)\n2. View History");
+        System.out.println("What is your next action?\n0. Discard this round\n1. Play card(s)\n2. View all history");
         printPlayerHand(currentPlayerIndex);
-        printCardIndex();
+        //printCardIndex();
         System.out.print("Please select your action: ");
         String menuInput = sc.nextLine();
         while (!checkMenuInput(menuInput)) {
@@ -310,11 +428,11 @@ public class GameController {
     private void printLastHistory() {
         if (histories.size() == 0) {
             System.out.println("****************************************************");
-            System.out.println("No History");
+            System.out.println("*No History");
             System.out.println("****************************************************");
         } else {
             System.out.println("****************************************************");
-            System.out.println("Last History of discarded card: ");
+            System.out.println("*History of last rounds' discarded card:");
             for(int i = histories.size() - 1; i >= 0; i--) {
                 if(histories.get(i).printCurrentPlay().equals("SKIP")) {
                     continue;

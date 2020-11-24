@@ -39,10 +39,15 @@ public class Card {
     public int getValue() {
         return value;
     }
+    
+    public String getValueSymbol() {
+        return Character.toString(CARD_VALUE[value]);
+    }
 
     public int getSuit() {
         return suit;
     }
+    
 
     public boolean isDiscarded() {
         return discarded;
@@ -55,6 +60,8 @@ public class Card {
     public String printCardSymbol() {
         return  Character.toString(CARD_SUIT[suit]) + CARD_VALUE[value];
     }
+    
+
 
     @Override
     public String toString() {
