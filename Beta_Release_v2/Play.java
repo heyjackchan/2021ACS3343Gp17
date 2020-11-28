@@ -1,9 +1,9 @@
 
 public class Play {
 
-    private Combination currentCombination;
-    private Combination previousCombination;
-    private SortStrategy sortStrategy;
+    protected Combination currentCombination;
+    protected Combination previousCombination;
+    protected SortStrategy sortStrategy;
 
     public Play() {
         currentCombination = new Combination();
