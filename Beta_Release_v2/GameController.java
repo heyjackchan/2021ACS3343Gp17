@@ -2,18 +2,18 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class GameController {
-    private Dealer dealer;
-    private AbstractPlayer[] players;
-    private AbstractPlayer currentPlayer = null;
-    private AbstractPlayer nextPlayer = null;
-    private int currentPlayerIndex;
-    private int round = 1;
-    private int skipCount = 1;
-    private int turn = 1;
-    private boolean isFirstPlayer = true;
-    private boolean endGame = false;
-    private Scanner sc = new Scanner(System.in);
-    private ArrayList<History> histories = new ArrayList<History>();
+    protected Dealer dealer;
+    protected AbstractPlayer[] players;
+    protected AbstractPlayer currentPlayer = null;
+    protected AbstractPlayer nextPlayer = null;
+    protected int currentPlayerIndex;
+    protected int round = 1;
+    protected int skipCount = 1;
+    protected int turn = 1;
+    protected boolean isFirstPlayer = true;
+    protected boolean endGame = false;
+    protected Scanner sc = new Scanner(System.in);
+    protected ArrayList<History> histories = new ArrayList<History>();
     private static final GameController gameController = new GameController();
 
     private GameController() {
@@ -29,6 +29,16 @@ public class GameController {
         return gameController;
     }
 
+    public GameController(Dealer dealer, AbstractPlayer[] players, int currentPlayerIndex, int round, int turn, int skipCount, boolean isFirstPlayer) {
+        this.dealer = dealer;
+    	this.currentPlayerIndex = currentPlayerIndex;
+        this.players = players;
+        this.round = round;
+        this.turn = turn;
+        this.skipCount = skipCount;
+        this.isFirstPlayer = isFirstPlayer;
+    }
+    
     public void prepareGame() {
         dealer.shuffle();
         for (int i = 0; i < 4; i++) {
@@ -89,7 +99,7 @@ public class GameController {
         clearScreen();
     }
 
-    private static void clearScreen() {
+    public static void clearScreen() {
         try {
             new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
         }catch(Exception e) {
@@ -97,7 +107,7 @@ public class GameController {
         }
     }
 
-    private void printPlayerHand(int index) {
+    public void printPlayerHand(int index) {
         String handStr = "Cards that you have: \n";
         String line1 = ".------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.     .------.";
         String line2 = "";
@@ -212,14 +222,14 @@ public class GameController {
 //        System.out.println(indexStr);
 //    }
 
-    private String promptPlayerInput() {
+    public String promptPlayerInput() {
         System.out.print("Input the card index(s) to indicate the card you want to play (Input 0 to discard this round):");
         String input = sc.nextLine();
         return input;
     }
 
 
-    private void printRemainingNumberOfCards() {
+    public void printRemainingNumberOfCards() {
         for (int i = 0; i < 4; i++) {
             if (i != currentPlayerIndex) {
                 System.out.println(players[i].getName() + " still have " + players[i].getHand().getCardNo() + " card(s).");
@@ -227,16 +237,16 @@ public class GameController {
         }
     }
 
-    private void addHistory(String playerName, Combination currentPlay) {
+    public void addHistory(String playerName, Combination currentPlay) {
         History history = new History(round, turn, playerName, currentPlay);
         histories.add(history);
     }
 
-    private void printHistory(History history) {
+    public void printHistory(History history) {
         System.out.println("*[Round " + history.getRound() +"] [Turn "+ history.getTurn() + "] [" + history.getPlayerName() + "]: " + history.printCurrentPlay());
     }
 
-    private void printHistories() {
+    public void printHistories() {
         if (histories.size() == 0) {
             System.out.println("****************************************************");
             System.out.println("No History");
@@ -252,25 +262,25 @@ public class GameController {
         discard();
     }
 
-    private void printWinningMessages() {
+    public void printWinningMessages() {
         System.out.println("Congratulations " + currentPlayer.getName() + "! you win the game!");
         printRemainingNumberOfCards();
         System.out.println("Game End!!!");
         pause();
     }
 
-    private int nextPlayerIndex() {
+    public int nextPlayerIndex() {
         return (currentPlayerIndex + 1) % 4;
     }
 
-    private boolean isNumber(String s) {
+    public boolean isNumber(String s) {
         for (int i = 0; i < s.length(); i++)
             if (Character.isDigit(s.charAt(i)) == false)
                 return false;
         return true;
     }
 
-    private boolean handleDiscardCards(String input) {
+    public boolean handleDiscardCards(String input) {
         Play currentPlay = currentPlayer.getPlay();
         Play nextPlay = nextPlayer.getPlay();
         Hand currentHand = currentPlayer.getHand();
@@ -315,7 +325,7 @@ public class GameController {
         }
     }
 
-    private void handleSkipPlay(){
+    public void handleSkipPlay(){
         Combination currentPreviousPlay = currentPlayer.getPlay().getPreviousCombination();
         Combination nextPreviousPlay = nextPlayer.getPlay().getPreviousCombination();
         for (int i = 0; i < currentPreviousPlay.getCardNo(); i++) {
@@ -325,7 +335,7 @@ public class GameController {
         // System.out.print("After clear previous play when Skip: \n" + currentPlayer.toString());
     }
 
-    private boolean checkMenuInput(String input) {
+    public boolean checkMenuInput(String input) {
         if (input.equals("0") || input.equals("1") || input.equals("2")) {
             return true;
         } else {
@@ -333,17 +343,17 @@ public class GameController {
         }
     }
 
-    private void printRoundInfo() {
+    public void printRoundInfo() {
         System.out.println("Now is turn "+ turn + " of round " + round +"!");
         System.out.println("It is your turn, "+ players[currentPlayerIndex].getName() +": ");
     }
 
-    private void pause(){
+    public void pause(){
         System.out.println("Press Enter Key To Continue...");
         new java.util.Scanner(System.in).nextLine();
     }
 
-    private void handleTurn() {
+    public void handleTurn() {
         currentPlayer = players[currentPlayerIndex];
         nextPlayer = players[nextPlayerIndex()];
         System.out.println("What is your next action?\n0. Discard this round\n1. Play card(s)\n2. View all history");
@@ -374,14 +384,14 @@ public class GameController {
         clearScreen();
     }
 
-    private void incrementRound() {
+    public void incrementRound() {
         if(turn > 4){
             round++;
             turn = 1;
         }
     }
 
-    private void discard() {
+    public void discard() {
         while (true) {
             String playerInput = promptPlayerInput();
             if(playerInput.equals("0")) {
@@ -411,7 +421,7 @@ public class GameController {
         }
     }
 
-    private void skip() {
+    public void skip() {
         if (skipCount < 4 && !isFirstPlayer) {
             addHistory(currentPlayer.getName(), null);
             handleSkipPlay();
@@ -425,7 +435,7 @@ public class GameController {
         incrementRound();
     }
 
-    private void printLastHistory() {
+    public void printLastHistory() {
         if (histories.size() == 0) {
             System.out.println("****************************************************");
             System.out.println("*No History");
