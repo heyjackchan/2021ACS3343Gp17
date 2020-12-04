@@ -3,11 +3,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class testHand {
-	Hand hand = new Hand(); //Create a new hand.
-	
-	//Test case UNIT0401: Use the hand to test toString() function.
+	//Test case INTE0401: Use the hand to test toString() function.
 	@Test
 	public void testHand_Hand_toString() {
+		Hand hand = new Hand(); //Create a new hand.
 		for(int i=0;i<13;i++) {
 			hand.addCard(new Card(i,0));
 		}
@@ -30,9 +29,10 @@ class testHand {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0402: Use the hand to test releaseCard() function.
+	//Test case INTE0402: Use the hand to test releaseCard() function.
 	@Test
 	public void testHand_Hand_releaseCard() {
+		Hand hand = new Hand(); //Create a new hand.
 		for(int i=0;i<13;i++) {
 			hand.addCard(new Card(i,0));
 		}

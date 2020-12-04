@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class testHumanPlayer {
 
-	//Test case UNIT0601: Create an new player without any value assigned to test toString() function.
+	//Test case INTE0601: Create a new player without any value assigned to test toString() function.
 	@Test
 	public void testHumanPlayer_humanPlayerNULL_toString() {
 		HumanPlayer humanPlayer = new HumanPlayer();
@@ -26,7 +26,7 @@ class testHumanPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0602: Create an new player with all required information, print out its information.
+	//Test case INTE0602: Create a new player with all required information, print out its information.
 	@Test
 	public void testHumanPlayer_humanPlayerWITHDATA_toString() {
 		Hand hand = new Hand();
@@ -48,7 +48,6 @@ class testHumanPlayer {
 				+ "}\n"
 				+ " } \n"
 				+ "";
-		System.out.print(humanPlayer.toString());
 		String actualResult = humanPlayer.toString();
 		assertEquals(expectResult, actualResult);
 	}

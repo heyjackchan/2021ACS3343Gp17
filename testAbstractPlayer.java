@@ -3,21 +3,19 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class testAbstractPlayer {
-	private class TestPlayer extends AbstractPlayer {
-		//Create a new AbstractPlayer type TestPlayer.
-	    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
-	        super(hand, play, name, sortStrategy);
-	    }
-	}
-	
-	Hand hand = new Hand(); //Create a new hand.
-	Play play = new Play(); //Create a new play.
-	String name = "Jack"; //Create a new name.
-	SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
-	
-	//Test case UNIT0501: Create testPlayer to test sort() function.
+	//Test case INTE0501: Create testPlayer to test sort() function.
 	@Test
 	public void testAbstractPlayer_TestPlayer_sort(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
@@ -42,18 +40,38 @@ class testAbstractPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0502: Create testPlayer to test win() function in TRUE condition.
+	//Test case INTE0502: Create testPlayer to test win() function in TRUE condition.
 	@Test
 	public void testAbstractPlayer_TestPlayer_winTRUE(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		boolean expectResult = true;
 		boolean actualResult = testPlayer.win();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0503: Create testPlayer to test win() function in FALSE condition.
+	//Test case INTE0503: Create testPlayer to test win() function in FALSE condition.
 	@Test
 	public void testAbstractPlayer_TestPlayer_winFALSE(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
@@ -63,9 +81,19 @@ class testAbstractPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0504: Create testPlayer to test getHand() function.
+	//Test case INTE0504: Create testPlayer to test getHand() function.
 	@Test
 	public void testAbstractPlayer_TestPlayer_getHand(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		for(int i=0;i<13;i++) { //Add all 13 Club cards in descending order.
 			hand.addCard(new Card((12-i),1));
 		}
@@ -75,32 +103,61 @@ class testAbstractPlayer {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0505: Create testPlayer to test getPlay() function.
+	//Test case INTE0505: Create testPlayer to test getPlay() function.
 	@Test
 	public void testAbstractPlayer_TestPlayer_getPlay(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		Play expectResult = play;
 		Play actualResult = testPlayer.getPlay();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0506: Create testPlayer to test getName() function.
+	//Test case INTE0506: Create testPlayer to test getName() function.
 	@Test
 	public void testAbstractPlayer_TestPlayer_getName(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		String expectResult = "Jack";
 		String actualResult = testPlayer.getName();
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0507: Create testPlayer to test setName() function.
+	//Test case INTE0507: Create testPlayer to test setName() function.
 	@Test
 	public void testAbstractPlayer_TestPlayer_setName(){
+		class TestPlayer extends AbstractPlayer {
+			//Create a new AbstractPlayer type TestPlayer.
+		    public TestPlayer(Hand hand, Play play, String name, SortStrategy sortStrategy) {
+		        super(hand, play, name, sortStrategy);
+		    }
+		}
+		Hand hand = new Hand(); //Create a new hand.
+		Play play = new Play(); //Create a new play.
+		String name = "Jack"; //Create a new name.
+		SortStrategy sortStrategy = new BubbleSort(); //Create a new sort method.
 		TestPlayer testPlayer = new TestPlayer(hand, play, name, sortStrategy);
 		testPlayer.setName("David");
 		String expectResult = "David";
 		String actualResult = testPlayer.getName();
 		assertEquals(expectResult, actualResult);
 	}
-
 }

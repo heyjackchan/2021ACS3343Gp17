@@ -15,7 +15,7 @@ class testCombination {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0702: Create a new combination of a pair of 3 to test toString() function.
+	//Test case INTE0701: Create a new combination of a pair of 3 to test toString() function.
 	@Test
 	public void testCombination_CombinationCardObj_withPair_toString() {
 		class Pair extends CardPile {
@@ -37,11 +37,10 @@ class testCombination {
 		assertEquals(expectResult, actualResult);
 	}
 	
-	//Test case UNIT0703: Create a new combination with NULL value inputed to test toString() function.
+	//Test case INTE0702: Create a new combination with NULL value inputed to test toString() function.
 	@Test
 	public void testCombination_CombinationInputNull_toString() {
 		Combination combination = new Combination(null);
-		System.out.println(combination.toString());
 		String expectResult = "combination{\n"
 				+ "cardNo=0, \n"
 				+ "}";
